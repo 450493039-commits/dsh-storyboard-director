@@ -1,9 +1,9 @@
 {
   "name": "dsh-storyboard-director",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "Seedance 分镜导演台（题材通用全功能版）：随包提供题材通用的 Seedance 2.0 分镜生成 skill（风格自选：写实/动画/水墨/科幻…）与三个题材示范项目，用即梦官方 CLI（dreamina-canvas）出图、出片、拼接成片；剧本/资产/分镜格式自检（drama_check）；侧栏「分镜导演台」工作台与生成历史持久化。",
+  "description": "Seedance 分镜导演台（题材通用全功能版）：随包提供题材通用的 Seedance 2.0 分镜生成 skill（风格自选：写实/动画/水墨/科幻…，内置「上美影」风格预设）与五个题材示范项目，用即梦官方 CLI（dreamina-canvas）出图、出片、拼接成片；剧本/资产/分镜格式自检（drama_check）；侧栏「分镜导演台」工作台与生成历史持久化。",
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",

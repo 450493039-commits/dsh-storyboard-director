@@ -661,6 +661,12 @@ function renderNew() {
             <option value="4:3">4:3</option>
           </select>
         </label>
+        <label class="fld">风格预设
+          <select id="f-line">
+            <option value="generic" selected>自选风格（写实/动画/水墨/科幻…自由描述）</option>
+            <option value="smy">上美影（手绘水墨+水粉，自带风格块与色盘）</option>
+          </select>
+        </label>
         <label class="fld full">视觉风格（题材自选，自由描述）<input id="f-style" placeholder="如：水墨武侠动漫风格 / 电影级写实 / 3D皮克斯动画 / 赛博朋克美学"></label>
         <label class="fld">情感基调<input id="f-tone" placeholder="如：史诗 / 悬疑 / 欢快 / 忧伤"></label>
         <label class="fld">一句话卖点<input id="f-hook" placeholder="如：忍无可忍，无须再忍！"></label>
@@ -683,6 +689,14 @@ function renderNew() {
       <div class="grid">${projectCard(lastProject)}</div>` : ''}
   `)
   bindCards()
+  document.getElementById('f-line').addEventListener('change', (e) => {
+    if (e.target.value !== 'smy') return
+    const style = document.getElementById('f-style')
+    if (!style.value.trim()) {
+      style.value = '上美影风格（上海美术电影制片厂复古手绘动画：手绘墨线轮廓、水粉平涂、矿物颜料色、胶片颗粒感）'
+      document.getElementById('f-palette-zh').value = '青瓷绿、朱砂红、鎏金、墨黑'
+    }
+  })
   document.getElementById('f-go').addEventListener('click', () => {
     const title = document.getElementById('f-title').value.trim()
     if (!title) return toast('先填个剧名')
@@ -697,6 +711,10 @@ function renderNew() {
     const zh = document.getElementById('f-palette-zh').value.trim()
     const en = document.getElementById('f-palette-en').value.trim()
     const blurb = document.getElementById('f-blurb').value.trim()
+    const smy = document.getElementById('f-line').value === 'smy'
+    const lineNote = smy
+      ? '选用上美影风格预设（references/上美影风格指南.md）：所有生图提示词末尾带咆哮体硬约束（纯2D平涂/无阴影渐变3D体积/大面积留白），Seedance 首行风格行逐集逐字相同'
+      : '同一段风格前缀在所有资产提示词开头逐字复用'
     if (!style) return toast('先填视觉风格（写实/动画/水墨/科幻…自由描述）')
     start(`帮我做一部短剧《${title}》，视觉风格：${style}。
 
@@ -705,9 +723,9 @@ function renderNew() {
 项目目录：${dir}
 参数：${episodes} 集 × ${seconds}s，画幅 ${aspect}，风格：${style}${tone ? `，基调：${tone}` : ''}${hook ? `，一句话卖点：${hook}` : ''}，色盘：${zh || '（你按故事定）'}${en ? ` / ${en}` : ''}
 
-请按 seedance-storyboard-generator 技能推进「文-资-视-剪」：
+请按 seedance-storyboard-generator 技能推进「文-资-视-剪」${smy ? '（走「上美影」风格预设）' : ''}：
 1. drama_project action=init（path=${dir}，title/aspect/episodes/episodeSeconds/styleDescription/tone/hook/paletteZh/paletteEn）
-2. 写 剧本.md、素材清单.md，以及每集 E01…E${String(episodes).padStart(2, '0')}_分镜.md；同一段风格前缀在所有资产提示词开头逐字复用
+2. 写 剧本.md、素材清单.md，以及每集 E01…E${String(episodes).padStart(2, '0')}_分镜.md；${lineNote}
 3. drama_check action=all 格式自检，有 ❌ 先修
 4. drama_project action=update 登记 assets（C/S/P，带 ratio 和 prompt）与 episodes（prompt + refs）
 5. drama_asset action=generate（先 dryRun 报积分，我确认后再真跑）
@@ -716,8 +734,12 @@ function renderNew() {
 
 每跑完一步，在侧栏「分镜导演台」里能看到资产墙、分集和这次的生成记录（积分/产物/失败原因）。`)
   })
-  document.getElementById('f-skill').addEventListener('click', () => start(
-    '先带我过一遍 seedance-storyboard-generator 技能：输出「文-资-视-剪」四步各自要产出的文件、视觉风格前缀怎么定、以及一集 15 秒分镜的 Seedance 提示词时间轴格式示例（给个可直接套用的模板）。另外讲讲 示例项目/ 里三个题材（武侠水墨/名著写实/儿童寓言）各自的范式。'))
+  document.getElementById('f-skill').addEventListener('click', () => {
+    const smy = document.getElementById('f-line').value === 'smy'
+    start(smy
+      ? '先带我过一遍 seedance-storyboard-generator 技能的「上美影」风格预设：输出「文-资-视-剪」四步各自要产出的文件、上美影风格块与剧组色盘声明怎么写、咆哮体硬约束怎么加、以及一集 15 秒分镜的 Seedance 提示词时间轴格式示例（给个可直接套用的模板）。'
+      : '先带我过一遍 seedance-storyboard-generator 技能：输出「文-资-视-剪」四步各自要产出的文件、视觉风格前缀怎么定、以及一集 15 秒分镜的 Seedance 提示词时间轴格式示例（给个可直接套用的模板）。另外讲讲 示例项目/ 里五个题材各自的范式（武侠水墨/名著写实/儿童寓言/上美影醉闹喜剧/上美影奇幻志怪）。')
+  })
 }
 
 // ---------------------------------------------------------------- 工作流
