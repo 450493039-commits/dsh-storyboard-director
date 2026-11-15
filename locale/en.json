@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Storyboard Director",
+    "description": "Genre-neutral Seedance 2.0 short-drama production: pick any visual style (live action / animation / ink wash / sci-fi...), turn a story into script, asset images and 15-second storyboards with deterministic format checks, render on the Jimeng canvas through the official CLI, and assemble the episodes. The sidebar workbench has overview, projects, generation history (credits/outputs/failures), new-drama form and workflow guide."
+  }
+}

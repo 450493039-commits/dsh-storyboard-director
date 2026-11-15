@@ -1,0 +1,5 @@
+# 分镜导演台（题材通用全功能版）：Host 半边。注册 skill（seedance-storyboard-generator）、六个工具
+# （项目/格式自检/出图/出片/拼接/生成历史）和 /storyboard-director 工作台（静态页面 + 数据接口）。
+- insert:
+    - id: storyboard-director
+      name: 'dsh-storyboard-director'
