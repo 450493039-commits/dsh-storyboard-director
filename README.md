@@ -2,8 +2,10 @@
 
 在 DeepSeek Harness（dsh）里把一句话故事做成一部 AI 短剧的完整工作台。**题材与视觉风格自选**（写实 / 动画 / 水墨 / 科幻 / 复古 / 电影感…），并内置 **「上美影」风格预设**（手绘水墨+水粉/水墨淡彩/剪纸风/敦煌重彩四子风格，含风格块与剧组色盘）。skill 源自 [Seedance2-Storyboard-Generator](https://github.com/liangdabiao/Seedance2-Storyboard-Generator)；上美影预设并入自 smy-seedance-storyboard（此前 [dsh-seedance-studio](https://github.com/liangdabiao/dsh-seedance-studio) 以独立 skill 携带，本插件已收编为一种风格）。
 
-```
-dsh plugin add file:D:/dsh-research/dsh-storyboard-director
+## 安装
+
+```bash
+dsh plugin --profile web add https://github.com/liangdabiao/dsh-storyboard-director
 ```
 
 ## 它能做什么
