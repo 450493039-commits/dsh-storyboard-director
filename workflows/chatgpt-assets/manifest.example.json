@@ -1,0 +1,21 @@
+{
+  "title": "示例短剧",
+  "episode": "01",
+  "script": "第01集/剧本.txt",
+  "storyboard": "第01集/分镜.txt",
+  "approved": {
+    "script": false,
+    "storyboard": false,
+    "assets": false
+  },
+  "assets": [
+    {"id": "room", "kind": "scene", "file": "资产/餐厅.png"},
+    {"id": "woman", "kind": "character", "file": "资产/女主-三视图.png"},
+    {"id": "man", "kind": "character", "file": "资产/男主-三视图.png"},
+    {"id": "letter", "kind": "prop", "file": "资产/信封.png"}
+  ],
+  "segments": [
+    {"id": "01", "seconds": 15, "prompt": "第01集/第1段提示词.txt", "references": ["room", "woman", "man"]},
+    {"id": "02", "seconds": 15, "prompt": "第01集/第2段提示词.txt", "references": ["room", "woman", "man", "letter"]}
+  ]
+}
