@@ -4,6 +4,8 @@
 
 ## 安装
 
+使用 ChatGPT 制作参考图、从即梦短剧工作室出片的流程见 [ChatGPT 生图与即梦交接](workflows/chatgpt-assets/README.md)。
+
 ```bash
 dsh plugin --profile web add https://github.com/liangdabiao/dsh-storyboard-director
 ```
@@ -34,7 +36,7 @@ dsh plugin --profile web add https://github.com/liangdabiao/dsh-storyboard-direc
 ## 随包内容
 
 - **skill 快照** `skills/seedance-storyboard-generator/`：题材通用版 SKILL.md + references（Seedance 2.0 平台手册、优化分镜、分镜优化与声音设计、好剧本、故事转视频脚本、structured-prompt、3组可套用提示词…）
-- **「上美影」风格预设**（skill §2，一种可选风格，非独立 skill）：启用后全程遵循 `references/上美影风格指南.md`——风格块（图片端纯 2D 平涂无阴影无渐变）、剧组色盘声明、造型规范（头身比/轮廓线/专属纹样）、咆哮体硬约束；源自 smy-seedance-storyboard（见 skills/NOTICE.md 授权说明）
+- **「上美影」风格预设**（skill §2，一种可选风格，非独立 skill）：启用后全程遵循 `references/上美影风格指南.md`——风格块（图片端纯 2D 平涂无阴影无渐变）、剧组色盘声明、造型规范（头身比/脸型/专属纹样）、咆哮体硬约束；源自 smy-seedance-storyboard（见 skills/NOTICE.md 授权说明）
 - **五个题材示范项目**（`skills/.../示例项目/`）：林冲（武侠水墨）、项链（世界名著写实改编）、司马光（儿童寓言）、鲁智深醉闹五台山（上美影·醉闹喜剧）、罗刹市（上美影·奇幻志怪）——同一个工作流，多种范式
 - 生成即上画布：每次出图/出片都在项目对应的即梦画布落节点，可以到即梦里继续改
 
